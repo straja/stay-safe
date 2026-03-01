@@ -58,15 +58,25 @@ export function HomeScreen() {
     }
     setPermissionStatus('granted');
     try {
-      const pos = await Location.getCurrentPositionAsync({
-        accuracy: Location.Accuracy.Balanced,
-      });
-      // Privacy: do not store raw coords; round for any logging
-      const lat = pos.coords.latitude;
-      const lon = pos.coords.longitude;
-      // Logging would use roundCoordForLog(lat), roundCoordForLog(lon)
-      void roundCoordForLog; // referenced to avoid lint warning
-      setLocation({ lat, lon });
+      // Try last known position first (instant on Android)
+      const last = await Location.getLastKnownPositionAsync();
+      if (last) {
+        void roundCoordForLog;
+        setLocation({ lat: last.coords.latitude, lon: last.coords.longitude });
+        return;
+      }
+      // Fall back to current position with an 8 s timeout
+      const timeout = new Promise<null>((resolve) => setTimeout(() => resolve(null), 8000));
+      const pos = await Promise.race([
+        Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }),
+        timeout,
+      ]);
+      if (!pos) {
+        setPermissionStatus('denied');
+        return;
+      }
+      void roundCoordForLog;
+      setLocation({ lat: pos.coords.latitude, lon: pos.coords.longitude });
     } catch {
       Alert.alert('Location error', 'Could not determine your location.');
     }
