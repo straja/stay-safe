@@ -1,4 +1,4 @@
-# Stay Safe
+# World Alert
 
 A clear, neutral, accurate global conflict-overview and distance tool.
 Built with Expo React Native (TypeScript).
