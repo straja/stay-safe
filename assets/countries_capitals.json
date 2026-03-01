@@ -1,0 +1,371 @@
+{
+  "version": "1.0.0",
+  "countries": [
+    {
+      "iso": "AE",
+      "name": "United Arab Emirates",
+      "capitals": [
+        {
+          "name": "Abu Dhabi",
+          "lat": 24.4539,
+          "lon": 54.3773,
+          "note": "Federal capital"
+        }
+      ]
+    },
+    {
+      "iso": "IR",
+      "name": "Iran",
+      "capitals": [
+        {
+          "name": "Tehran",
+          "lat": 35.6892,
+          "lon": 51.389,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "IL",
+      "name": "Israel",
+      "capitals": [
+        {
+          "name": "Jerusalem",
+          "lat": 31.7683,
+          "lon": 35.2137,
+          "note": "Declared capital (not universally recognized)"
+        },
+        {
+          "name": "Tel Aviv",
+          "lat": 32.0853,
+          "lon": 34.7818,
+          "note": "Seat of most embassies; financial and tech hub"
+        }
+      ]
+    },
+    {
+      "iso": "RS",
+      "name": "Serbia",
+      "capitals": [
+        {
+          "name": "Belgrade",
+          "lat": 44.8176,
+          "lon": 20.4633,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "US",
+      "name": "United States",
+      "capitals": [
+        {
+          "name": "Washington, D.C.",
+          "lat": 38.8951,
+          "lon": -77.0364,
+          "note": "Federal capital"
+        }
+      ]
+    },
+    {
+      "iso": "GB",
+      "name": "United Kingdom",
+      "capitals": [
+        {
+          "name": "London",
+          "lat": 51.5074,
+          "lon": -0.1278,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "FR",
+      "name": "France",
+      "capitals": [
+        {
+          "name": "Paris",
+          "lat": 48.8566,
+          "lon": 2.3522,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "DE",
+      "name": "Germany",
+      "capitals": [
+        {
+          "name": "Berlin",
+          "lat": 52.52,
+          "lon": 13.405,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "RU",
+      "name": "Russia",
+      "capitals": [
+        {
+          "name": "Moscow",
+          "lat": 55.7558,
+          "lon": 37.6173,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "CN",
+      "name": "China",
+      "capitals": [
+        {
+          "name": "Beijing",
+          "lat": 39.9042,
+          "lon": 116.4074,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "UA",
+      "name": "Ukraine",
+      "capitals": [
+        {
+          "name": "Kyiv",
+          "lat": 50.4501,
+          "lon": 30.5234,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "SY",
+      "name": "Syria",
+      "capitals": [
+        {
+          "name": "Damascus",
+          "lat": 33.5102,
+          "lon": 36.2913,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "IQ",
+      "name": "Iraq",
+      "capitals": [
+        {
+          "name": "Baghdad",
+          "lat": 33.3152,
+          "lon": 44.3661,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "SA",
+      "name": "Saudi Arabia",
+      "capitals": [
+        {
+          "name": "Riyadh",
+          "lat": 24.7136,
+          "lon": 46.6753,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "TR",
+      "name": "Turkey",
+      "capitals": [
+        {
+          "name": "Ankara",
+          "lat": 39.9334,
+          "lon": 32.8597,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "EG",
+      "name": "Egypt",
+      "capitals": [
+        {
+          "name": "Cairo",
+          "lat": 30.0444,
+          "lon": 31.2357,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "IN",
+      "name": "India",
+      "capitals": [
+        {
+          "name": "New Delhi",
+          "lat": 28.6139,
+          "lon": 77.209,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "PK",
+      "name": "Pakistan",
+      "capitals": [
+        {
+          "name": "Islamabad",
+          "lat": 33.6844,
+          "lon": 73.0479,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "AF",
+      "name": "Afghanistan",
+      "capitals": [
+        {
+          "name": "Kabul",
+          "lat": 34.5553,
+          "lon": 69.2075,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "LB",
+      "name": "Lebanon",
+      "capitals": [
+        {
+          "name": "Beirut",
+          "lat": 33.8938,
+          "lon": 35.5018,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "JO",
+      "name": "Jordan",
+      "capitals": [
+        {
+          "name": "Amman",
+          "lat": 31.9454,
+          "lon": 35.9284,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "KW",
+      "name": "Kuwait",
+      "capitals": [
+        {
+          "name": "Kuwait City",
+          "lat": 29.3759,
+          "lon": 47.9774,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "QA",
+      "name": "Qatar",
+      "capitals": [
+        {
+          "name": "Doha",
+          "lat": 25.2854,
+          "lon": 51.531,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "ET",
+      "name": "Ethiopia",
+      "capitals": [
+        {
+          "name": "Addis Ababa",
+          "lat": 9.0246,
+          "lon": 38.7468,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "SD",
+      "name": "Sudan",
+      "capitals": [
+        {
+          "name": "Khartoum",
+          "lat": 15.5007,
+          "lon": 32.5599,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "LY",
+      "name": "Libya",
+      "capitals": [
+        {
+          "name": "Tripoli",
+          "lat": 32.9022,
+          "lon": 13.1803,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "ML",
+      "name": "Mali",
+      "capitals": [
+        {
+          "name": "Bamako",
+          "lat": 12.6392,
+          "lon": -8.0029,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "SO",
+      "name": "Somalia",
+      "capitals": [
+        {
+          "name": "Mogadishu",
+          "lat": 2.0469,
+          "lon": 45.3182,
+          "note": null
+        }
+      ]
+    },
+    {
+      "iso": "MM",
+      "name": "Myanmar",
+      "capitals": [
+        {
+          "name": "Naypyidaw",
+          "lat": 19.7633,
+          "lon": 96.0785,
+          "note": "Administrative capital since 2006"
+        }
+      ]
+    },
+    {
+      "iso": "VE",
+      "name": "Venezuela",
+      "capitals": [
+        {
+          "name": "Caracas",
+          "lat": 10.4806,
+          "lon": -66.9036,
+          "note": null
+        }
+      ]
+    }
+  ]
+}

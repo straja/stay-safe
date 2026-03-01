@@ -1,0 +1,7 @@
+** BUILD FAILED **
+
+
+The following build commands failed:
+	PhaseScriptExecution [CP-User]\ Generate\ Specs /Users/macbookpro/Library/Developer/Xcode/DerivedData/StaySafe-bguibcpmridpqvaxruqrttrccmyx/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/React-Codegen.build/Script-46EB2E00018B50.sh (in target 'React-Codegen' from project 'Pods')
+	Building workspace StaySafe with scheme StaySafe and configuration Debug
+(2 failures)

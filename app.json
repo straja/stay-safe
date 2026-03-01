@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Stay Safe",
+    "slug": "stay-safe",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0d1117"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.staysafe.app",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.",
+        "NSLocationAlwaysUsageDescription": "Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session."
+      },
+      "config": {
+        "googleMapsApiKey": "AIzaSyBPiZLHMXnV5oe4IHOmwCK-KRc_jFJUyZk"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0d1117"
+      },
+      "package": "com.staysafe.app",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDHDTeDt5AZOL3DH-I6Fxn9etA9FMtlmjg"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-dev-client",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session."
+        }
+      ]
+    ]
+  }
+}
