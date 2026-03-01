@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   View,
   Text,
+  Image,
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
@@ -160,6 +161,16 @@ export function HomeScreen() {
 
   return (
     <MapScreenLayout map={map} mapFraction={0.5} showDisclaimer>
+      {/* App header with logo */}
+      <View style={styles.logoRow}>
+        <Image
+          source={require('../../assets/WorldAlertLogo.png')}
+          style={styles.logo}
+          resizeMode="contain"
+        />
+        <Text style={styles.logoTitle}>World Alert</Text>
+      </View>
+
       {/* Status bar */}
       <View style={styles.statusRow}>
         <View style={styles.statusLeft}>
@@ -239,6 +250,23 @@ export function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  logoRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: SPACING.sm,
+    gap: SPACING.sm,
+  },
+  logo: {
+    width: 32,
+    height: 32,
+    borderRadius: 6,
+  },
+  logoTitle: {
+    fontSize: FONT.sizeLg,
+    fontWeight: '700',
+    color: COLORS.textPrimary,
+    letterSpacing: -0.3,
+  },
   statusRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',

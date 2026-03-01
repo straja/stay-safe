@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Stay Safe",
-    "slug": "stay-safe",
+    "name": "World Alert",
+    "slug": "world-alert",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,10 +13,10 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.staysafe.app",
+      "bundleIdentifier": "com.worldalert.app",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.",
-        "NSLocationAlwaysUsageDescription": "Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session."
+        "NSLocationWhenInUseUsageDescription": "World Alert uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.",
+        "NSLocationAlwaysUsageDescription": "World Alert uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session."
       },
       "config": {
         "googleMapsApiKey": "AIzaSyBPiZLHMXnV5oe4IHOmwCK-KRc_jFJUyZk"
@@ -27,7 +27,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0d1117"
       },
-      "package": "com.staysafe.app",
+      "package": "com.worldalert.app",
       "permissions": [
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION"
@@ -46,7 +46,7 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session."
+          "locationWhenInUsePermission": "World Alert uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session."
         }
       ]
     ]

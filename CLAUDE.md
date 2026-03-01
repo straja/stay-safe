@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-# Stay Safe App
+# Worl Alert App
 
 ## Vision
 

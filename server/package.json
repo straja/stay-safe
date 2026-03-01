@@ -1,7 +1,7 @@
 {
-  "name": "stay-safe-server",
+  "name": "world-alert-server",
   "version": "1.0.0",
-  "description": "Stay Safe API server stub (Fastify)",
+  "description": "World Alert API server stub (Fastify)",
   "main": "index.js",
   "type": "module",
   "scripts": {

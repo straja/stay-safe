@@ -1,5 +1,5 @@
 /**
- * Design tokens for Stay Safe.
+ * Design tokens for World Alert.
  * Dark, calm, information-focused palette.
  */
 

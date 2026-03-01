@@ -1,5 +1,5 @@
 /**
- * Stay Safe — API Server Stub
+ * World Alert — API Server Stub
  * Framework: Fastify
  *
  * All endpoints currently return mock JSON.
@@ -43,7 +43,7 @@ await fastify.register(distanceRoutes, { prefix: '/api' });
 
 // Root
 fastify.get('/', async () => ({
-  service: 'stay-safe-api',
+  service: 'world-alert-api',
   version: '1.0.0',
   status: 'stub',
   docs: 'See /api/health for source status.',
@@ -54,7 +54,7 @@ const HOST = process.env.HOST ?? '0.0.0.0';
 
 try {
   await fastify.listen({ port: PORT, host: HOST });
-  console.log(`\nStay Safe API stub running on http://localhost:${PORT}\n`);
+  console.log(`\nWorld Alert API stub running on http://localhost:${PORT}\n`);
 } catch (err) {
   fastify.log.error(err);
   process.exit(1);
