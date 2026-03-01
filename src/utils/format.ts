@@ -89,3 +89,16 @@ export function eventTypeLabel(type: string): string {
     default: return 'Incident';
   }
 }
+
+/**
+ * User-friendly data source label.
+ */
+export function sourceLabel(source: string): string {
+  switch (source) {
+    case 'structured_db':
+    case 'structured_db_primary': return 'Verified DB';
+    case 'news_feed': return 'News Signal';
+    case 'mock': return 'Demo Data';
+    default: return source;
+  }
+}

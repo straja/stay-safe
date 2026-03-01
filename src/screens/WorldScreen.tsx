@@ -8,13 +8,15 @@ import {
 } from 'react-native';
 import MapView, { Marker, PROVIDER_DEFAULT } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { getHotspots, getHotspotsMetadata } from '../data/loader';
-import { formatTimeUTC, severityLabel, eventTypeLabel } from '../utils/format';
-import type { Hotspot } from '../types/event';
+import { getHotspots, getHotspotsMetadata, getEventsForHotspot } from '../data/loader';
+import { formatTimeUTC, formatDateTimeUTC, severityLabel, eventTypeLabel, sourceLabel } from '../utils/format';
+import type { Hotspot, EventDetail } from '../types/event';
 import { COLORS, SPACING, FONT, RADIUS } from '../theme';
 
 const DENSITY_OPTIONS = [25, 50, 100] as const;
 type Density = (typeof DENSITY_OPTIONS)[number];
+
+type ExpandedPanel = 'events' | 'fatalities' | null;
 
 const SEVERITY_COLOR: Record<string, string> = {
   high: COLORS.severityHigh,
@@ -35,11 +37,23 @@ export function WorldScreen() {
   const [allHotspots] = useState<Hotspot[]>(getHotspots());
   const [lastUpdated, setLastUpdated] = useState('');
   const [selectedHotspot, setSelectedHotspot] = useState<Hotspot | null>(null);
+  const [expandedPanel, setExpandedPanel] = useState<ExpandedPanel>(null);
+  const [events, setEvents] = useState<EventDetail[]>([]);
 
   useEffect(() => {
     const meta = getHotspotsMetadata();
     setLastUpdated(formatTimeUTC(meta.generated));
   }, []);
+
+  function selectHotspot(h: Hotspot) {
+    setSelectedHotspot(h);
+    setExpandedPanel(null);
+    setEvents(getEventsForHotspot(h.id));
+  }
+
+  function togglePanel(panel: ExpandedPanel) {
+    setExpandedPanel(prev => (prev === panel ? null : panel));
+  }
 
   // Sort by severity + event count, then slice to density
   const displayed = allHotspots
@@ -51,6 +65,9 @@ export function WorldScreen() {
       return b.event_count - a.event_count;
     })
     .slice(0, density);
+
+  const fatalityEvents = events.filter(e => e.fatalities > 0);
+  const listEvents = expandedPanel === 'fatalities' ? fatalityEvents : events;
 
   return (
     <SafeAreaView style={styles.root} edges={['top', 'left', 'right']}>
@@ -72,7 +89,7 @@ export function WorldScreen() {
               title={h.label}
               description={`${severityLabel(h.severity)} · ${h.event_count} events`}
               pinColor={SEVERITY_COLOR[h.severity] ?? COLORS.textMuted}
-              onPress={() => setSelectedHotspot(h)}
+              onPress={() => selectHotspot(h)}
             />
           ))}
         </MapView>
@@ -137,19 +154,72 @@ export function WorldScreen() {
               </Text>
 
               <View style={styles.statsRow}>
-                <View style={styles.statItem}>
+                {/* Events stat — tappable */}
+                <TouchableOpacity
+                  style={[
+                    styles.statItem,
+                    expandedPanel === 'events' && styles.statItemActive,
+                  ]}
+                  onPress={() => togglePanel('events')}
+                  activeOpacity={0.7}
+                >
                   <Text style={styles.statValue}>{selectedHotspot.event_count}</Text>
                   <Text style={styles.statLabel}>Events (7d)</Text>
-                </View>
-                <View style={styles.statItem}>
+                  <Text style={styles.statChevron}>
+                    {expandedPanel === 'events' ? '▲' : '▼'}
+                  </Text>
+                </TouchableOpacity>
+
+                {/* Fatalities stat — tappable */}
+                <TouchableOpacity
+                  style={[
+                    styles.statItem,
+                    expandedPanel === 'fatalities' && styles.statItemActive,
+                  ]}
+                  onPress={() => togglePanel('fatalities')}
+                  activeOpacity={0.7}
+                >
                   <Text style={styles.statValue}>{selectedHotspot.fatalities}</Text>
                   <Text style={styles.statLabel}>Fatalities</Text>
-                </View>
+                  <Text style={styles.statChevron}>
+                    {expandedPanel === 'fatalities' ? '▲' : '▼'}
+                  </Text>
+                </TouchableOpacity>
+
+                {/* Source — non-interactive, friendly label */}
                 <View style={styles.statItem}>
-                  <Text style={styles.statValue}>{selectedHotspot.source}</Text>
+                  <Text style={[styles.statValue, styles.statValueSm]}>
+                    {sourceLabel(selectedHotspot.source)}
+                  </Text>
                   <Text style={styles.statLabel}>Source</Text>
                 </View>
               </View>
+
+              {/* Expanded event list */}
+              {expandedPanel !== null && (
+                <View style={styles.eventList}>
+                  {expandedPanel === 'fatalities' && fatalityEvents.length === 0 ? (
+                    <Text style={styles.emptyText}>No recorded fatalities in this window.</Text>
+                  ) : listEvents.length === 0 ? (
+                    <Text style={styles.emptyText}>No detailed events available.</Text>
+                  ) : (
+                    listEvents.map((ev) => (
+                      <View key={ev.id} style={styles.eventRow}>
+                        <View style={styles.eventRowHeader}>
+                          <Text style={styles.eventType}>{eventTypeLabel(ev.type)}</Text>
+                          {ev.fatalities > 0 && (
+                            <Text style={styles.eventFatalities}>
+                              {ev.fatalities} {ev.fatalities === 1 ? 'fatality' : 'fatalities'}
+                            </Text>
+                          )}
+                        </View>
+                        <Text style={styles.eventTime}>{formatDateTimeUTC(ev.event_time)}</Text>
+                        <Text style={styles.eventDesc}>{ev.description}</Text>
+                      </View>
+                    ))
+                  )}
+                </View>
+              )}
 
               <Text style={styles.disclaimer}>
                 Data is informational and does not replace official safety guidance.
@@ -175,7 +245,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   mapContainer: {
-    flex: 0.65,
+    flex: 0.55,
     overflow: 'hidden',
   },
   densityOverlay: {
@@ -235,7 +305,7 @@ const styles = StyleSheet.create({
     color: COLORS.textMuted,
   },
   panel: {
-    flex: 0.35,
+    flex: 0.45,
     backgroundColor: COLORS.background,
     borderTopWidth: 1,
     borderTopColor: COLORS.border,
@@ -293,7 +363,7 @@ const styles = StyleSheet.create({
   statsRow: {
     flexDirection: 'row',
     gap: SPACING.sm,
-    marginBottom: SPACING.md,
+    marginBottom: SPACING.sm,
   },
   statItem: {
     flex: 1,
@@ -302,15 +372,69 @@ const styles = StyleSheet.create({
     padding: SPACING.sm,
     alignItems: 'center',
   },
+  statItemActive: {
+    borderWidth: 1,
+    borderColor: COLORS.accent,
+    backgroundColor: COLORS.accentSubtle,
+  },
   statValue: {
     fontSize: FONT.sizeLg,
     fontWeight: '700',
     color: COLORS.textPrimary,
   },
+  statValueSm: {
+    fontSize: FONT.sizeSm,
+    fontWeight: '600',
+  },
   statLabel: {
     fontSize: FONT.sizeSm,
     color: COLORS.textMuted,
     marginTop: 2,
+  },
+  statChevron: {
+    fontSize: 9,
+    color: COLORS.textMuted,
+    marginTop: 3,
+  },
+  eventList: {
+    marginBottom: SPACING.md,
+    gap: SPACING.sm,
+  },
+  eventRow: {
+    backgroundColor: COLORS.surface,
+    borderRadius: RADIUS.sm,
+    padding: SPACING.sm,
+    gap: 3,
+  },
+  eventRowHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  eventType: {
+    fontSize: FONT.sizeSm,
+    fontWeight: '600',
+    color: COLORS.textSecondary,
+  },
+  eventFatalities: {
+    fontSize: FONT.sizeSm,
+    color: COLORS.severityHigh,
+    fontWeight: '600',
+  },
+  eventTime: {
+    fontSize: FONT.sizeSm - 1,
+    color: COLORS.textMuted,
+  },
+  eventDesc: {
+    fontSize: FONT.sizeSm,
+    color: COLORS.textPrimary,
+    lineHeight: 18,
+  },
+  emptyText: {
+    fontSize: FONT.sizeSm,
+    color: COLORS.textMuted,
+    textAlign: 'center',
+    padding: SPACING.sm,
   },
   disclaimer: {
     fontSize: FONT.sizeSm,
