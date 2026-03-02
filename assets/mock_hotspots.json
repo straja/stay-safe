@@ -171,5 +171,32 @@
       "last_event": "2026-02-23T20:00:00Z",
       "source": "structured_db"
     }
+  ],
+  "events": [
+    { "id": "ev_001a", "hotspot_id": "hs_001", "event_time": "2026-02-28T21:30:00Z", "type": "armed_conflict", "description": "Artillery exchange reported south of the capital. Civilian evacuation confirmed in two districts.", "fatalities": 3, "source": "structured_db" },
+    { "id": "ev_001b", "hotspot_id": "hs_001", "event_time": "2026-02-28T14:10:00Z", "type": "air_strike", "description": "Air activity reported over northern suburbs. Infrastructure damage confirmed by local monitors.", "fatalities": 2, "source": "structured_db" },
+    { "id": "ev_001c", "hotspot_id": "hs_001", "event_time": "2026-02-27T09:00:00Z", "type": "explosion", "description": "Explosion near central market area. Cause under investigation.", "fatalities": 3, "source": "structured_db" },
+    { "id": "ev_002a", "hotspot_id": "hs_002", "event_time": "2026-02-27T14:10:00Z", "type": "armed_conflict", "description": "Clashes reported on eastern outskirts. Humanitarian access limited in affected area.", "fatalities": 2, "source": "structured_db" },
+    { "id": "ev_002b", "hotspot_id": "hs_002", "event_time": "2026-02-26T18:00:00Z", "type": "armed_conflict", "description": "Ground movement observed near northern checkpoint. No civilian casualties reported.", "fatalities": 1, "source": "structured_db" },
+    { "id": "ev_003a", "hotspot_id": "hs_003", "event_time": "2026-02-28T18:45:00Z", "type": "air_strike", "description": "Drone strike on infrastructure target reported. Emergency services responding.", "fatalities": 4, "source": "structured_db" },
+    { "id": "ev_003b", "hotspot_id": "hs_003", "event_time": "2026-02-28T07:30:00Z", "type": "explosion", "description": "Explosion in industrial district. Power outage reported across three sectors.", "fatalities": 2, "source": "structured_db" },
+    { "id": "ev_003c", "hotspot_id": "hs_003", "event_time": "2026-02-27T22:00:00Z", "type": "air_strike", "description": "Air activity reported overnight. Civilian shelter protocols activated.", "fatalities": 9, "source": "structured_db" },
+    { "id": "ev_004a", "hotspot_id": "hs_004", "event_time": "2026-02-28T22:15:00Z", "type": "armed_conflict", "description": "Heavy artillery exchange along the contact line. Multiple settlements affected.", "fatalities": 8, "source": "structured_db" },
+    { "id": "ev_004b", "hotspot_id": "hs_004", "event_time": "2026-02-28T11:00:00Z", "type": "armed_conflict", "description": "Ground engagement near logistics route. Supply corridor temporarily disrupted.", "fatalities": 6, "source": "structured_db" },
+    { "id": "ev_004c", "hotspot_id": "hs_004", "event_time": "2026-02-27T16:30:00Z", "type": "air_strike", "description": "Air activity over eastern sector. Damage to residential buildings reported.", "fatalities": 5, "source": "structured_db" },
+    { "id": "ev_005a", "hotspot_id": "hs_005", "event_time": "2026-02-28T10:20:00Z", "type": "civil_unrest", "description": "Large-scale civil unrest in central districts. Security forces deployed. Roads blocked.", "fatalities": 5, "source": "structured_db" },
+    { "id": "ev_005b", "hotspot_id": "hs_005", "event_time": "2026-02-27T15:45:00Z", "type": "civil_unrest", "description": "Protests continue for third consecutive day. Curfew imposed in two zones.", "fatalities": 7, "source": "structured_db" },
+    { "id": "ev_006a", "hotspot_id": "hs_006", "event_time": "2026-02-26T08:00:00Z", "type": "armed_conflict", "description": "Armed group activity reported on northern periphery. Security advisory issued.", "fatalities": 2, "source": "structured_db" },
+    { "id": "ev_006b", "hotspot_id": "hs_006", "event_time": "2026-02-25T12:00:00Z", "type": "armed_conflict", "description": "Checkpoint incident on main highway. Traffic disruption for several hours.", "fatalities": 0, "source": "structured_db" },
+    { "id": "ev_007a", "hotspot_id": "hs_007", "event_time": "2026-02-27T16:30:00Z", "type": "armed_conflict", "description": "Armed engagement on western approach roads. Security perimeter established.", "fatalities": 4, "source": "structured_db" },
+    { "id": "ev_007b", "hotspot_id": "hs_007", "event_time": "2026-02-26T09:15:00Z", "type": "armed_conflict", "description": "Attack on humanitarian convoy reported. Aid delivery suspended temporarily.", "fatalities": 2, "source": "structured_db" },
+    { "id": "ev_008a", "hotspot_id": "hs_008", "event_time": "2026-02-28T12:00:00Z", "type": "explosion", "description": "Explosion in port district. Multiple casualties confirmed. Emergency services on scene.", "fatalities": 4, "source": "structured_db" },
+    { "id": "ev_008b", "hotspot_id": "hs_008", "event_time": "2026-02-27T20:30:00Z", "type": "armed_conflict", "description": "Armed exchange near government buildings. Area cordoned off.", "fatalities": 3, "source": "structured_db" },
+    { "id": "ev_009a", "hotspot_id": "hs_009", "event_time": "2026-02-28T05:00:00Z", "type": "armed_conflict", "description": "Military engagement in rural areas. Displacement of civilian population reported.", "fatalities": 5, "source": "structured_db" },
+    { "id": "ev_009b", "hotspot_id": "hs_009", "event_time": "2026-02-27T11:00:00Z", "type": "armed_conflict", "description": "Clashes near regional border. Humanitarian situation deteriorating.", "fatalities": 4, "source": "structured_db" },
+    { "id": "ev_010a", "hotspot_id": "hs_010", "event_time": "2026-02-25T09:30:00Z", "type": "civil_unrest", "description": "Civil unrest in regional capital. Internet disruption reported. Aid access restricted.", "fatalities": 4, "source": "structured_db" },
+    { "id": "ev_010b", "hotspot_id": "hs_010", "event_time": "2026-02-24T14:00:00Z", "type": "civil_unrest", "description": "Demonstrations outside government offices. Dispersal by security forces.", "fatalities": 0, "source": "structured_db" },
+    { "id": "ev_011a", "hotspot_id": "hs_011", "event_time": "2026-02-24T14:00:00Z", "type": "explosion", "description": "Isolated explosion reported near northern district. Investigation ongoing.", "fatalities": 1, "source": "structured_db" },
+    { "id": "ev_012a", "hotspot_id": "hs_012", "event_time": "2026-02-23T20:00:00Z", "type": "civil_unrest", "description": "Civil unrest in metropolitan area. Demonstrations dispersed without major incidents.", "fatalities": 0, "source": "structured_db" }
   ]
 }

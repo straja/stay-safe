@@ -46,18 +46,18 @@ export function HomeScreen() {
 
   // Request location
   const requestLocation = useCallback(async () => {
-    const { status } = await Location.requestForegroundPermissionsAsync();
-    if (status !== 'granted') {
-      setPermissionStatus('denied');
-      Alert.alert(
-        'Location access',
-        'Location permission was not granted. You can still use World view and Distance tools.',
-        [{ text: 'OK' }]
-      );
-      return;
-    }
-    setPermissionStatus('granted');
     try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setPermissionStatus('denied');
+        Alert.alert(
+          'Location access',
+          'Location permission was not granted. You can still use World view and Distance tools.',
+          [{ text: 'OK' }]
+        );
+        return;
+      }
+      setPermissionStatus('granted');
       // Try last known position first (instant on Android)
       const last = await Location.getLastKnownPositionAsync();
       if (last) {
@@ -78,7 +78,7 @@ export function HomeScreen() {
       void roundCoordForLog;
       setLocation({ lat: pos.coords.latitude, lon: pos.coords.longitude });
     } catch {
-      Alert.alert('Location error', 'Could not determine your location.');
+      setPermissionStatus('denied');
     }
   }, []);
 
@@ -137,7 +137,7 @@ export function HomeScreen() {
   const map = (
     <MapView
       ref={mapRef}
-      style={StyleSheet.absoluteFillObject}
+      style={styles.map}
       provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       initialRegion={initialRegion}
       mapType="standard"
@@ -260,6 +260,9 @@ export function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  map: {
+    flex: 1,
+  },
   logoRow: {
     flexDirection: 'row',
     alignItems: 'center',

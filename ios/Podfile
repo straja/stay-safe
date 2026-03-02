@@ -60,6 +60,19 @@ target 'StaySafe' do
       :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true',
     )
 
+    # Fix: paths with spaces break unquoted variable invocations in build scripts.
+    pods_project = installer.pods_project
+    pods_project.targets.each do |target|
+      target.build_phases.each do |phase|
+        next unless phase.respond_to?(:shell_script)
+        next if phase.shell_script.nil?
+        phase.shell_script = phase.shell_script
+          .gsub('/bin/sh -c "$WITH_ENVIRONMENT $SCRIPT_PHASES_SCRIPT"', '"$WITH_ENVIRONMENT" "$SCRIPT_PHASES_SCRIPT"')
+          .gsub('bash -l -c "$PODS_TARGET_SRCROOT/../scripts/get-app-config-ios.sh"', 'bash -l "$PODS_TARGET_SRCROOT/../scripts/get-app-config-ios.sh"')
+      end
+    end
+    pods_project.save
+
     # This is necessary for Xcode 14, because it signs resource bundles by default
     # when building for devices.
     installer.target_installation_results.pod_target_installation_results

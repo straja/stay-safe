@@ -76,7 +76,7 @@ export function WorldScreen() {
       <View style={styles.mapContainer}>
         <MapView
           ref={mapRef}
-          style={StyleSheet.absoluteFillObject}
+          style={styles.mapView}
           provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
           initialRegion={WORLD_REGION}
           mapType="standard"
@@ -244,6 +244,9 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: COLORS.background,
+  },
+  mapView: {
+    flex: 1,
   },
   mapContainer: {
     flex: 0.55,

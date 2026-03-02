@@ -7,7 +7,7 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>$(DEVELOPMENT_LANGUAGE)</string>
     <key>CFBundleDisplayName</key>
-    <string>Stay Safe</string>
+    <string>World Alert</string>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -27,20 +27,20 @@
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>com.staysafe.app</string>
+          <string>com.worldalert.app</string>
         </array>
       </dict>
       <dict>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>exp+stay-safe</string>
+          <string>exp+world-alert</string>
         </array>
       </dict>
     </array>
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>GMSApiKey</key>
-    <string>AIzaSyBPiZLHMXnV5oe4IHOmwCK-KRc_jFJUyZk</string>
+    <string>AIzaSyD_fS85lgL-YZ55TC9PlVrvwdGR6_PCKR0</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>NSAppTransportSecurity</key>
@@ -59,9 +59,9 @@
     <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
     <string>Allow $(PRODUCT_NAME) to access your location</string>
     <key>NSLocationAlwaysUsageDescription</key>
-    <string>Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.</string>
+    <string>World Alert uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Stay Safe uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.</string>
+    <string>World Alert uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.</string>
     <key>UILaunchStoryboardName</key>
     <string>SplashScreen</string>
     <key>UIRequiredDeviceCapabilities</key>

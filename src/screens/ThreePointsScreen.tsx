@@ -144,7 +144,7 @@ export function ThreePointsScreen() {
   const map = (
     <MapView
       ref={mapRef}
-      style={StyleSheet.absoluteFillObject}
+      style={styles.map}
       provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       initialRegion={{
         latitude: 32,
@@ -292,6 +292,9 @@ export function ThreePointsScreen() {
 }
 
 const styles = StyleSheet.create({
+  map: {
+    flex: 1,
+  },
   toggleRow: {
     marginBottom: SPACING.sm,
     gap: SPACING.xs,

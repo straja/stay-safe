@@ -22,11 +22,22 @@ export interface Hotspot {
   distance_km?: number; // populated client-side
 }
 
+export interface EventDetail {
+  id: string;
+  hotspot_id: string;
+  event_time: string;
+  type: EventType;
+  description: string;
+  fatalities: number;
+  source: string;
+}
+
 export interface HotspotsDataset {
   version: string;
   generated: string;
   source: string;
   hotspots: Hotspot[];
+  events?: EventDetail[];
 }
 
 export interface SourceStatus {
