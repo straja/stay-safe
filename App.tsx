@@ -8,12 +8,14 @@ import { Text, View, StyleSheet, Platform } from 'react-native';
 import { HomeScreen } from './src/screens/HomeScreen';
 import { WorldScreen } from './src/screens/WorldScreen';
 import { DistancesNavigator } from './src/screens/DistancesScreen';
+import { SafetyMapScreen } from './src/screens/SafetyMapScreen';
 import { COLORS, FONT } from './src/theme';
 
 export type RootTabParamList = {
   Home: undefined;
   World: undefined;
   Distances: undefined;
+  SafetyMap: undefined;
 };
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
@@ -88,6 +90,16 @@ export default function App() {
               tabBarLabel: 'Distances',
               tabBarIcon: ({ focused }) => (
                 <TabIcon icon="↔" focused={focused} />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="SafetyMap"
+            component={SafetyMapScreen}
+            options={{
+              tabBarLabel: 'Safety Map',
+              tabBarIcon: ({ focused }) => (
+                <TabIcon icon="⊕" focused={focused} />
               ),
             }}
           />

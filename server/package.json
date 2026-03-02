@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "fastify": "^4.27.0",
-    "pino-pretty": "^11"
+    "pino-pretty": "^11",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
   },
   "engines": {
     "node": ">=20"

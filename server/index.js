@@ -13,6 +13,7 @@ import { healthRoutes } from './routes/health.js';
 import { hotspotsRoutes } from './routes/hotspots.js';
 import { eventsRoutes } from './routes/events.js';
 import { distanceRoutes } from './routes/distance.js';
+import { safetyLevelsRoutes } from './routes/safetyLevels.js';
 
 const fastify = Fastify({
   logger: {
@@ -25,13 +26,13 @@ const fastify = Fastify({
 });
 
 // CORS headers (permissive for dev; tighten in production)
-fastify.addHook('onSend', async (request, reply) => {
+fastify.addHook('onSend', async (_request, reply) => {
   reply.header('Access-Control-Allow-Origin', '*');
   reply.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
   reply.header('Access-Control-Allow-Headers', 'Content-Type');
 });
 
-fastify.options('*', async (request, reply) => {
+fastify.options('*', async (_request, reply) => {
   reply.status(204).send();
 });
 
@@ -40,6 +41,7 @@ await fastify.register(healthRoutes, { prefix: '/api' });
 await fastify.register(hotspotsRoutes, { prefix: '/api' });
 await fastify.register(eventsRoutes, { prefix: '/api' });
 await fastify.register(distanceRoutes, { prefix: '/api' });
+await fastify.register(safetyLevelsRoutes, { prefix: '/api' });
 
 // Root
 fastify.get('/', async () => ({
