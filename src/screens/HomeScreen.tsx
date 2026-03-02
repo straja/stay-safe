@@ -9,7 +9,7 @@ import {
   Platform,
   Alert,
 } from 'react-native';
-import MapView, { Marker, Circle, PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView, { Marker, Circle, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
 import * as Location from 'expo-location';
 import { MapScreenLayout } from '../components/MapScreenLayout';
 import { HotspotRow } from '../components/HotspotRow';
@@ -138,7 +138,7 @@ export function HomeScreen() {
     <MapView
       ref={mapRef}
       style={StyleSheet.absoluteFillObject}
-      provider={PROVIDER_DEFAULT}
+      provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       initialRegion={initialRegion}
       mapType="standard"
       showsUserLocation={permissionStatus === 'granted'}

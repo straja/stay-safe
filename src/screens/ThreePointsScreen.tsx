@@ -5,8 +5,9 @@ import {
   TouchableOpacity,
   StyleSheet,
   Switch,
+  Platform,
 } from 'react-native';
-import MapView, { Marker, Polyline, Circle, PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView, { Marker, Polyline, Circle, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
 import { MapScreenLayout } from '../components/MapScreenLayout';
 import { CountryCapitalSelector } from '../components/CountryCapitalSelector';
 import { DistanceCard } from '../components/DistanceCard';
@@ -144,7 +145,7 @@ export function ThreePointsScreen() {
     <MapView
       ref={mapRef}
       style={StyleSheet.absoluteFillObject}
-      provider={PROVIDER_DEFAULT}
+      provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       initialRegion={{
         latitude: 32,
         longitude: 48,

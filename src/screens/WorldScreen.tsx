@@ -5,8 +5,9 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Platform,
 } from 'react-native';
-import MapView, { Marker, PROVIDER_DEFAULT } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getHotspots, getHotspotsMetadata, getEventsForHotspot } from '../data/loader';
 import { formatTimeUTC, formatDateTimeUTC, severityLabel, eventTypeLabel, sourceLabel } from '../utils/format';
@@ -76,7 +77,7 @@ export function WorldScreen() {
         <MapView
           ref={mapRef}
           style={StyleSheet.absoluteFillObject}
-          provider={PROVIDER_DEFAULT}
+          provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
           initialRegion={WORLD_REGION}
           mapType="standard"
           userInterfaceStyle="dark"

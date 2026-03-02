@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import MapView, { Marker, Polyline, PROVIDER_DEFAULT } from 'react-native-maps';
+import { View, Text, StyleSheet, ScrollView, Platform } from 'react-native';
+import MapView, { Marker, Polyline, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from 'react-native-maps';
 import { MapScreenLayout } from '../components/MapScreenLayout';
 import { CountryCapitalSelector } from '../components/CountryCapitalSelector';
 import { DistanceCard } from '../components/DistanceCard';
@@ -54,7 +54,7 @@ export function TwoPointsScreen() {
     <MapView
       ref={mapRef}
       style={StyleSheet.absoluteFillObject}
-      provider={PROVIDER_DEFAULT}
+      provider={Platform.OS === 'android' ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
       initialRegion={{
         latitude: 30,
         longitude: 40,
