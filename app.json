@@ -20,9 +20,7 @@
         "NSLocationWhenInUseUsageDescription": "World Alert uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session.",
         "NSLocationAlwaysUsageDescription": "World Alert uses your location to show nearby conflict events. Your location is never stored or transmitted beyond the session."
       },
-      "config": {
-        "googleMapsApiKey": "AIzaSyD_fS85lgL-YZ55TC9PlVrvwdGR6_PCKR0"
-      }
+      "config": {}
     },
     "android": {
       "versionCode": 1,
@@ -37,11 +35,7 @@
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
       ],
-      "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyDDzuHxW9nRTehqESdkxjXcQvSJUoCNYGM"
-        }
-      }
+      "config": {}
     },
     "web": {
       "favicon": "./assets/favicon.png"

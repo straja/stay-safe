@@ -10,3 +10,6 @@ ios/
 
 # IDE
 .idea/
+
+# env
+.env
