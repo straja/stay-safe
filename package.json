@@ -5,10 +5,10 @@
   "scripts": {
     "start": "adb reverse tcp:3001 tcp:3001; concurrently -n server,expo -c cyan,magenta \"cd server && node index.js\" \"expo start\"",
     "expo": "expo start",
-    "android": "expo run:android",
+    "android": "scripts/boot-android.sh && expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web",
-    "postinstall": "sed -i '' 's/^  \\$1$/  \"\\$@\"/' node_modules/react-native/scripts/xcode/with-environment.sh || true && node -e \"const fs=require('fs'),p='node_modules/expo-dev-menu/ios/DevMenuViewController.swift';if(!fs.existsSync(p))process.exit(0);let s=fs.readFileSync(p,'utf8');if(!s.includes('TARGET_IPHONE_SIMULATOR'))process.exit(0);s=s.replace('let isSimulator = TARGET_IPHONE_SIMULATOR > 0','#if targetEnvironment(simulator)\\n    let isSimulator = true\\n    #else\\n    let isSimulator = false\\n    #endif');fs.writeFileSync(p,s);console.log('Fixed expo-dev-menu Swift compat');\" || true"
+    "postinstall": "patch-package && sed -i '' 's/^  \\$1$/  \"\\$@\"/' node_modules/react-native/scripts/xcode/with-environment.sh || true && node -e \"const fs=require('fs'),p='node_modules/expo-dev-menu/ios/DevMenuViewController.swift';if(!fs.existsSync(p))process.exit(0);let s=fs.readFileSync(p,'utf8');if(!s.includes('TARGET_IPHONE_SIMULATOR'))process.exit(0);s=s.replace('let isSimulator = TARGET_IPHONE_SIMULATOR > 0','#if targetEnvironment(simulator)\\n    let isSimulator = true\\n    #else\\n    let isSimulator = false\\n    #endif');fs.writeFileSync(p,s);console.log('Fixed expo-dev-menu Swift compat');\" || true"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.5.20",
@@ -29,6 +29,7 @@
     "@types/react": "~18.2.79",
     "@types/react-native": "~0.73.0",
     "concurrently": "^9.2.1",
+    "patch-package": "^8.0.1",
     "typescript": "~5.3.3"
   },
   "private": true
