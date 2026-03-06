@@ -6,7 +6,11 @@
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "distribution": "internal",
+      "env": {
+        "GOOGLE_MAPS_API_KEY_ANDROID": "$GOOGLE_MAPS_API_KEY_ANDROID",
+        "GOOGLE_MAPS_API_KEY_IOS": "$GOOGLE_MAPS_API_KEY_IOS"
+      }
     },
     "preview": {
       "android": {
@@ -14,6 +18,10 @@
       },
       "ios": {
         "distribution": "internal"
+      },
+      "env": {
+        "GOOGLE_MAPS_API_KEY_ANDROID": "$GOOGLE_MAPS_API_KEY_ANDROID",
+        "GOOGLE_MAPS_API_KEY_IOS": "$GOOGLE_MAPS_API_KEY_IOS"
       }
     },
     "production": {
@@ -23,6 +31,10 @@
       "ios": {
         "distribution": "store",
         "autoIncrement": false
+      },
+      "env": {
+        "GOOGLE_MAPS_API_KEY_ANDROID": "$GOOGLE_MAPS_API_KEY_ANDROID",
+        "GOOGLE_MAPS_API_KEY_IOS": "$GOOGLE_MAPS_API_KEY_IOS"
       }
     }
   },
