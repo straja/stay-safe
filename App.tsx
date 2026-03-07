@@ -1,4 +1,3 @@
-import 'expo-dev-client';
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
@@ -52,8 +51,13 @@ export default function App() {
               backgroundColor: COLORS.surface,
               borderTopColor: COLORS.border,
               borderTopWidth: 1,
-              height: Platform.OS === 'ios' ? 84 : 60,
-              paddingBottom: Platform.OS === 'ios' ? 24 : 8,
+              // iOS: fixed height to accommodate the home indicator
+              // Android: let SafeAreaProvider handle bottom inset for older phones
+              // with software navigation buttons
+              ...(Platform.OS === 'ios' && {
+                height: 84,
+                paddingBottom: 24,
+              }),
             },
             tabBarActiveTintColor: COLORS.accent,
             tabBarInactiveTintColor: COLORS.textMuted,
