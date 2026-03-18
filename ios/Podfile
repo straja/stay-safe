@@ -34,7 +34,7 @@ install! 'cocoapods',
 
 prepare_react_native_project!
 
-target 'StaySafe' do
+target 'WorldAlert' do
   use_expo_modules!
 # @generated begin react-native-maps - expo prebuild (DO NOT MODIFY) sync-e9cc66c360abe50bc66d89fffb3c55b034d7d369
   pod 'react-native-google-maps', path: File.dirname(`node --print "require.resolve('react-native-maps/package.json')"`)
@@ -59,19 +59,6 @@ target 'StaySafe' do
       :mac_catalyst_enabled => false,
       :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true',
     )
-
-    # Fix: paths with spaces break unquoted variable invocations in build scripts.
-    pods_project = installer.pods_project
-    pods_project.targets.each do |target|
-      target.build_phases.each do |phase|
-        next unless phase.respond_to?(:shell_script)
-        next if phase.shell_script.nil?
-        phase.shell_script = phase.shell_script
-          .gsub('/bin/sh -c "$WITH_ENVIRONMENT $SCRIPT_PHASES_SCRIPT"', '"$WITH_ENVIRONMENT" "$SCRIPT_PHASES_SCRIPT"')
-          .gsub('bash -l -c "$PODS_TARGET_SRCROOT/../scripts/get-app-config-ios.sh"', 'bash -l "$PODS_TARGET_SRCROOT/../scripts/get-app-config-ios.sh"')
-      end
-    end
-    pods_project.save
 
     # This is necessary for Xcode 14, because it signs resource bundles by default
     # when building for devices.
